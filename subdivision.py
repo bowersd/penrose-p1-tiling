@@ -5,6 +5,8 @@ import math
             #pentagon = 2 108x36x36 triangles + 1 36x72x72 triangle, 
             #so break the 108 triangles into a pentagon thus composed flanked by a pair of 36 (joins to make rhombus) and 108 triangles
             #break the 36 triangle into a pentagon thus composed, plus 3 36s (finishing pentagons), 2 108s (finishing pentagons), and a 36 (joins to make a rhombus)
+            #boats and pentagrams can be treated similarly, since they are pentagons with 36 triangles jutting off the edges. 
+            #rhombuses are even simpler, base to base 36 triangles -> though directionality of embedded pentagon is something I am unsure about
 
 phi = (1 + math.sqrt(5))/2
 
