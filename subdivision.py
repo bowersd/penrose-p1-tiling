@@ -11,8 +11,7 @@ import math
 phi = (1 + math.sqrt(5))/2
 
 def subdivide(depth, *shapes):
-    h = []
-    if depth < 1: return h
+    if depth < 1: return shapes
     for s in shapes:
         nu = []
         if len(s) == 2:
@@ -23,5 +22,4 @@ def subdivide(depth, *shapes):
             pass #boat (3 36 triangles and 2 108 triangles plus a 36-> 3 pentagons (and join with neighboring pentagons to make 3 boats on tips and a pentagram on base)
         if len(s) == 8:
             pass #pentagram (5 36 triangles and 2 108 triangles plus a 36)-> 5 pentagons, 1 pentagram (and join with neighboring pentagons to make 5 boats on tips)
-        h = nu
-    subdivide(depth-1, *h)
+    subdivide(depth-1, *nu)
