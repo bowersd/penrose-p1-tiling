@@ -11,14 +11,18 @@ import math
 phi = (1 + math.sqrt(5))/2
 
 def subdivide(depth, *triangles):
-    #triangles are tuples with 3 coordinates and an id for what larger tile they belong to: 1 = pentagon, 2 = boat, 3 = pentagram, 0 = rhomb/excised triangle from pentagon
+    #triangles are tuples with 3 coordinates and an id for what larger tile they belong to and whether they are 108 (1) or 36 (0) triangles: 1 = pentagon, 2 = boat, 3 = pentagram, 0 = rhomb/excised triangle from pentagon
     if depth < 1: return triangles
     for t in triangles:
         nu = []
         if len(t) == 2:
             pass #rhombus (2 triangles with apex 36) -> 1 pentagon (and join with neighboring pentagons to make 1 boat and 1 pentagram)
-        if len(t) == 3:
-            pass #pentagon (2 108 triangles and 1 apex 36)-> 6 pentagons (and join with neighboring pentagons to make 5 rhombuses) 
+        if t[0] == 1 and t[1]:
+            d = t[2] + (t[3]-t[2])/phi #marks on the hypotenuse
+            e = t[3] + (t[2]-t[3])/phi #marks on the hypotenuse
+            #need marks f,g,h,i on the legs
+            nu.extend([(1,1,t[2],d,f), (0,0,d,f,g), (1,1,d,e,g),(1,0,g,e,t[4]), (1,1,e,h,t[4]), (0,0,e,h,i), (1,1,t[3],e,i)])
+            #pentagon (2 108 triangles and 1 apex 36)-> 6 pentagons (and join with neighboring pentagons to make 5 rhombuses) 
         if len(t) == 6:
             pass #boat (3 36 triangles and 2 108 triangles plus a 36-> 3 pentagons (and join with neighboring pentagons to make 3 boats on tips and a pentagram on base)
         if len(t) == 8:
