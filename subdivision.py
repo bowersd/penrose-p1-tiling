@@ -10,9 +10,10 @@ import math
 
 phi = (1 + math.sqrt(5))/2
 
-def subdivide(depth, *shapes):
-    if depth < 1: return shapes
-    for s in shapes:
+def subdivide(depth, *triangles):
+    #triangles are tuples with 3 coordinates and an id for what larger tile they belong to: 1 = pentagon, 2 = boat, 3 = pentagram, 0 = rhomb/excised triangle from pentagon
+    if depth < 1: return triangles
+    for t in triangles:
         nu = []
         if len(s) == 2:
             pass #rhombus (2 triangles with apex 36) -> 1 pentagon (and join with neighboring pentagons to make 1 boat and 1 pentagram)
