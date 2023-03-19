@@ -15,13 +15,13 @@ def subdivide(depth, *shapes):
     if depth < 1: return h
     for s in shapes:
         nu = []
-        if len(s) == 4:
-            pass #rhombus -> 1 pentagon (and join with neighboring pentagons to make 1 boat and 1 pentagram)
-        if len(s) == 5:
-            pass #pentagon -> 6 pentagons (and join with neighboring pentagons to make 5 rhombuses) 
-        if len(s) == 7:
-            pass #boat -> 3 pentagons (and join with neighboring pentagons to make 3 boats on tips and a pentagram on base)
-        if len(s) == 10:
-            pass #pentagram -> 5 pentagons, 1 pentagram (and join with neighboring pentagons to make 5 boats on tips)
+        if len(s) == 2:
+            pass #rhombus (2 triangles with apex 36) -> 1 pentagon (and join with neighboring pentagons to make 1 boat and 1 pentagram)
+        if len(s) == 3:
+            pass #pentagon (2 108 triangles and 1 apex 36)-> 6 pentagons (and join with neighboring pentagons to make 5 rhombuses) 
+        if len(s) == 6:
+            pass #boat (3 36 triangles and 2 108 triangles plus a 36-> 3 pentagons (and join with neighboring pentagons to make 3 boats on tips and a pentagram on base)
+        if len(s) == 8:
+            pass #pentagram (5 36 triangles and 2 108 triangles plus a 36)-> 5 pentagons, 1 pentagram (and join with neighboring pentagons to make 5 boats on tips)
         h = nu
     subdivide(depth-1, *h)
