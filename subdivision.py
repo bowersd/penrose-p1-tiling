@@ -17,12 +17,15 @@ def subdivide(depth, *triangles):
     for t in triangles:
         if len(t) == 2:
             pass #rhombus (2 triangles with apex 36) -> 1 pentagon (and join with neighboring pentagons to make 1 boat and 1 pentagram)
-        if t[0] == 1 and t[1]:
+        if t[0] == 1 and t[1]: #108 triangle in a pentagon (2 108 triangles and 1 apex 36)-> 6 pentagons (and join with neighboring pentagons to make 5 rhombuses) 
             d = t[2] + (t[3]-t[2])/phi #marks on the hypotenuse
             e = t[3] + (t[2]-t[3])/phi #marks on the hypotenuse
             #need marks f,g,h,i on the legs
             nu.extend([(1,1,t[2],d,f), (0,0,d,f,g), (1,1,d,e,g),(1,0,g,e,t[4]), (1,1,e,h,t[4]), (0,0,e,h,i), (1,1,t[3],e,i)])
-            #pentagon (2 108 triangles and 1 apex 36)-> 6 pentagons (and join with neighboring pentagons to make 5 rhombuses) 
+        elif t[0] == 1 and not t[1]: #36 triangle in a pentagon
+            #could re-use hypotenuse marks from pentagon's 108-triangles
+            #need to calculate vertices
+            nu.extend([(1,1), (1,0), (0,0), (1,1), (1,0), (1,1), (1,0), (1,1), (1,0)])
         if len(t) == 6:
             pass #boat (3 36 triangles and 2 108 triangles plus a 36-> 3 pentagons (and join with neighboring pentagons to make 3 boats on tips and a pentagram on base)
         if len(t) == 8:
