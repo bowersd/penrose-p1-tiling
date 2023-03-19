@@ -13,8 +13,8 @@ phi = (1 + math.sqrt(5))/2
 def subdivide(depth, *triangles):
     #triangles are tuples with 3 coordinates and an id for what larger tile they belong to and whether they are 108 (1) or 36 (0) triangles: 1 = pentagon, 2 = boat, 3 = pentagram, 0 = rhomb/excised triangle from pentagon
     if depth < 1: return triangles
+    nu = []
     for t in triangles:
-        nu = []
         if len(t) == 2:
             pass #rhombus (2 triangles with apex 36) -> 1 pentagon (and join with neighboring pentagons to make 1 boat and 1 pentagram)
         if t[0] == 1 and t[1]:
