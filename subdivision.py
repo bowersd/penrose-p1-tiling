@@ -15,12 +15,12 @@ def subdivide(depth, *triangles):
     if depth < 1: return triangles
     for t in triangles:
         nu = []
-        if len(s) == 2:
+        if len(t) == 2:
             pass #rhombus (2 triangles with apex 36) -> 1 pentagon (and join with neighboring pentagons to make 1 boat and 1 pentagram)
-        if len(s) == 3:
+        if len(t) == 3:
             pass #pentagon (2 108 triangles and 1 apex 36)-> 6 pentagons (and join with neighboring pentagons to make 5 rhombuses) 
-        if len(s) == 6:
+        if len(t) == 6:
             pass #boat (3 36 triangles and 2 108 triangles plus a 36-> 3 pentagons (and join with neighboring pentagons to make 3 boats on tips and a pentagram on base)
-        if len(s) == 8:
+        if len(t) == 8:
             pass #pentagram (5 36 triangles and 2 108 triangles plus a 36)-> 5 pentagons, 1 pentagram (and join with neighboring pentagons to make 5 boats on tips)
     subdivide(depth-1, *nu)
